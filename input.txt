@@ -1,0 +1,16 @@
+<level>
+First level
+<ans>
+answer one
+1
+<ans>
+answer two
+</level>
+<level>
+Second level
+<ans>
+answer three
+1
+<ans>
+answer four
+</level>
