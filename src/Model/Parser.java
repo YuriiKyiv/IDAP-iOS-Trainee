@@ -20,11 +20,11 @@ public  class Parser {
         String line;
         Level level = new Level();
         level.setDescription(file.readLine());
-        Answer answer = new Answer();
         List<Answer> answers = new ArrayList<Answer>();
 
         while (!(line = file.readLine()).equals("</level>")){
             if (line.equals("<ans>")){
+                Answer answer = new Answer();
                 answer.setDescription(file.readLine());
                 answer.setLink(Integer.parseInt(file.readLine()));
                 answers.add(answer);
@@ -32,6 +32,7 @@ public  class Parser {
         }
 
         level.setAnswers(answers);
+        file.close();
         return level;
     }
 }
