@@ -1,11 +1,13 @@
-import Model.Parser;
+import Controller.Controller;
+import Model.*;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        System.out.println("Welcome");
-        Parser.indexation();
-        Parser.parser(2);
+        Indexation.indexation();
+        Level level =  Parser.parse(1);
     }
 }

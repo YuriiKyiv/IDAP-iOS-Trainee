@@ -1,19 +1,23 @@
 <level>
 1
-First level
+And now the story is starting
 <ans>
-answer one
+Continue
+2
+<ans>
+Go to back
 1
 <ans>
-answer two
+use a hit
+2
 </level>
 <level>
 2
-Second level
+Second part of a story
 <ans>
-answer three
+Continue
 1
 <ans>
-answer four
-4
+Go to back
+1
 </level>
