@@ -1,7 +1,8 @@
 package Model;
 
-/**
- * Created by Yurii on 25.06.2014.
- */
+import java.util.List;
+
 public class Level {
+    private String description;
+    private List<Answer> answers;
 }
