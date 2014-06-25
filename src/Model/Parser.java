@@ -1,25 +1,34 @@
 package Model;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.RandomAccessFile;
+import java.util.HashMap;
+
 
 public class Parser {
 
-    public static String[] read() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("D:\\Work\\IDAP-iOS-Trainee\\input.txt"));
+    private static HashMap<Integer, Long> mainTable = new HashMap<Integer, Long>();
+
+    public static void indexation() throws IOException {
+        String path = "D:\\Work\\IDAP-iOS-Trainee\\input.txt";
+
+        RandomAccessFile file;
+        file = new RandomAccessFile(path,"r");
         String line;
-        List<String> lines = new ArrayList<String>();
-        while ((line = reader.readLine()) != null){
-            lines.add(line);
+        int key;
+        long value;
+        while ((line = file.readLine()) != null) {
+            if (line.equals("<level>")){
+                key = Integer.parseInt(file.readLine());
+                System.out.println(key);
+                value = file.getFilePointer();
+                System.out.println(value);
+                mainTable.put(key, value);
+            }
+            //System.out.println(line);
         }
-        String[] linesAsArray = lines.toArray(new String[lines.size()]);
-        for (int i = 0; i < linesAsArray.length; i++){
-            System.out.println(linesAsArray[i]);
-        }
-        return linesAsArray;
+        file.close();
+
     }
 
 }

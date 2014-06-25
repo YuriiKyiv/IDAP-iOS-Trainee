@@ -1,4 +1,5 @@
 <level>
+1
 First level
 <ans>
 answer one
@@ -7,6 +8,7 @@ answer one
 answer two
 </level>
 <level>
+2
 Second level
 <ans>
 answer three
