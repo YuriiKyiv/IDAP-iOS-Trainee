@@ -16,22 +16,21 @@ public class Main {
             View.showLevel(level);
             int input = in.nextInt();
             if (input <= level.getAnswers().size() && input > -2 ){
-                if (input == -1){
+                if (input == -1) {
                     Game.setStatus(true);
                 } else {
-                    if (input <= level.getAnswers().size() && input > 1) {
-                        lvl = level.getAnswers().get(input - 1).getLink();
-                    } else {
-                        if (level.getAnswers().get(input - 1).getLink() == -2){
+                    switch (level.getAnswers().get(input-1).getLink()) {
+                        case -2 :
                             Game.setStatus(true);
                             View.playerIsDead();
-                        } else {
-                            if (level.getAnswers().get(input - 1).getLink() == -2) {
-                                Game.setStatus(true);
-                                View.playerIsWinner();
-                            }
-
-                        }
+                            break;
+                        case -3 :
+                            Game.setStatus(true);
+                            View.playerIsWinner();
+                            break;
+                        default:
+                            lvl = level.getAnswers().get(input-1).getLink();
+                            break;
                     }
                 }
 

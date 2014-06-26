@@ -2,7 +2,7 @@
 1
 The story is comming...
 <ans>
-Continue
+Continue to retell a story
 2
 <ans>
 Back
@@ -13,11 +13,14 @@ Use a hint
 </level>
 <level>
 2
-Second part of a story
+One day a young boy was dreammig that he could ever fly.
 <ans>
-Continue
-1
+Give this boy wings
+-3
 <ans>
 Go to back
 1
+<ans>
+Use a hint
+-2
 </level>
