@@ -12,9 +12,7 @@ public class Indexation {
         return mainTable;
     }
 
-    public static void indexation() throws IOException {
-        String path = "D:\\Work\\IDAP-iOS-Trainee\\input.txt";
-
+    public static void indexation(String path) throws IOException {
         RandomAccessFile file;
         file = new RandomAccessFile(path,"r");
         String line;

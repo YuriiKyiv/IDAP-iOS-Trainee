@@ -8,10 +8,9 @@ import java.util.List;
 
 public  class Parser {
 
-    public static Level parse(int lvl) throws IOException {
+    public static Level parse(int lvl, String path) throws IOException {
 
         long address = Indexation.getMainTable().get(lvl);
-        String path = "D:\\Work\\IDAP-iOS-Trainee\\input.txt";
 
         RandomAccessFile file;
         file = new RandomAccessFile(path,"r");
