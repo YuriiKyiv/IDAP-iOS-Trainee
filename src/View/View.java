@@ -27,5 +27,8 @@ public class View {
         System.out.println("Press any key to continue");
     }
 
+    public static void noCorrectAnswer(){
+        System.out.println(" Please, enter the correct answer");
+    }
 
 }
