@@ -7,9 +7,13 @@ import java.io.IOException;
 
 public class Game {
 
+    private static boolean status = false;
+
     public static boolean isEnd(){
-        return false;
+        return status;
     }
 
-
+    public static void setStatus(boolean status) {
+        Game.status = status;
+    }
 }

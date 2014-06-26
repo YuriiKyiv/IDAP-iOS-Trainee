@@ -1,15 +1,15 @@
 <level>
 1
-And now the story is starting
+The story is comming...
 <ans>
 Continue
 2
 <ans>
-Go to back
+Back
 1
 <ans>
-use a hit
-2
+Use a hint
+-2
 </level>
 <level>
 2

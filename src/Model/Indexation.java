@@ -27,6 +27,7 @@ public class Indexation {
                 mainTable.put(key, value);
             }
         }
+
         file.close();
 
     }
