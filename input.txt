@@ -16,11 +16,21 @@ Use a hint
 One day a young boy was dreammig that he could ever fly.
 <ans>
 Give this boy wings
--3
+3
 <ans>
 Go to back
 1
 <ans>
 Use a hint
 -2
+</level>
+<level>
+3
+But this wings had a bug
+<ans>
+What was a bag?
+-3
+<ans>
+Back
+2
 </level>
