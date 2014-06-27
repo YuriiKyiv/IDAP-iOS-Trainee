@@ -25,7 +25,7 @@ public class Main {
         Main.path = path;
     }
 
-    public static Level findLevel(int lvl) throws IOException {
+    public static Level findLevel(int lvl) throws IOException, InterruptedException {
 
         for (Level level : History.getHistoryLevels()) {
             if (level.getNumber() == lvl){
@@ -43,13 +43,23 @@ public class Main {
     }
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
         if (args.length > 0){
             Main.setPath(args[0]);
         }
         View.starMenu();
-        Indexation.indexation(path);
+        Thread thread = new Thread("file"){
+            @Override
+            public void run(){
+                try {
+                    Indexation.indexation(path);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        thread.start();
         Scanner in = new Scanner(System.in);
         in.next();
         int lvl = 1;

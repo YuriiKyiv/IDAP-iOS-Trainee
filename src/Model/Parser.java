@@ -8,8 +8,14 @@ import java.util.List;
 
 public  class Parser {
 
-    public static Level parse(int lvl, String path) throws IOException {
-
+    public static Level parse(int lvl, String path) throws IOException, InterruptedException {
+        Thread thread = Thread.currentThread();
+        while (Indexation.getMainTable().isEmpty()){
+            thread.sleep(1000);
+        }
+        while (Indexation.getMainTable().get(lvl) == null){
+            thread.sleep(1000);
+        }
         long address = Indexation.getMainTable().get(lvl);
 
         RandomAccessFile file;
