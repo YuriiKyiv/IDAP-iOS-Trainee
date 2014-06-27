@@ -15,6 +15,8 @@ public class Main {
 
     public static final int EXIT = -1;
 
+    public static final int FIRST_LEVEL = 1;
+
     private static String path = "D:\\Work\\IDAP-iOS-Trainee\\input.txt";
 
     public static String getPath() {
@@ -48,6 +50,7 @@ public class Main {
         if (args.length > 0){
             Main.setPath(args[0]);
         }
+
         View.starMenu();
         Thread thread = new Thread("file"){
             @Override
@@ -60,9 +63,10 @@ public class Main {
             }
         };
         thread.start();
+
         Scanner in = new Scanner(System.in);
         in.next();
-        int lvl = 1;
+        int lvl = FIRST_LEVEL;
         while (!Game.isEnd()) {
             Level level =  Main.findLevel(lvl);
             View.showLevel(level);
