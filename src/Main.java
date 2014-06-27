@@ -7,7 +7,9 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static String path = "D:\\Work\\IDAP-iOS-Trainee\\input.txt";
+    public static final int SIZE_OF_HISTORY = 1;
+
+    private static String path = "D:\\Work\\IDAP-iOS-Trainee\\input.txt";
 
     public static String getPath() {
         return path;
@@ -18,8 +20,15 @@ public class Main {
     }
 
     public static Level findLevel(int lvl) throws IOException {
-        Level level = Parser.parse(lvl, path);
-        if (History.getHistoryLevels().size() > 1) {
+
+        for (Level level : History.getHistoryLevels()) {
+            if (level.getNumber() == lvl){
+                return level;
+            }
+        }
+
+        Level level = Parser.parse(lvl, Main.getPath());
+        if (History.getHistoryLevels().size() > SIZE_OF_HISTORY) {
             History.deleteLevel();
         }
         History.addLevel(level);

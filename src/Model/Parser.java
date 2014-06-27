@@ -18,6 +18,7 @@ public  class Parser {
 
         String line;
         Level level = new Level();
+        level.setNumber(lvl);
         level.setDescription(file.readLine());
         List<Answer> answers = new ArrayList<Answer>();
 

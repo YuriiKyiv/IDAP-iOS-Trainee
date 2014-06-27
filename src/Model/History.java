@@ -1,11 +1,12 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class History {
 
-    private static List<Level> historyLevels = new LinkedList<Level>();
+    private static List<Level> historyLevels = new ArrayList<Level>();
 
     public static List<Level> getHistoryLevels() {
         return historyLevels;
