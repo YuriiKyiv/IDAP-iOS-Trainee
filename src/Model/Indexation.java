@@ -13,6 +13,7 @@ public class Indexation {
     }
 
     public static void indexation(String path) throws IOException {
+
         RandomAccessFile file;
         file = new RandomAccessFile(path,"r");
         String line;

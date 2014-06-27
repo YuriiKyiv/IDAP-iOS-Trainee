@@ -9,6 +9,12 @@ public class Main {
 
     public static final int SIZE_OF_HISTORY = 1;
 
+    public static final int LOSER = -2;
+
+    public static final int WINNER = -3;
+
+    public static final int EXIT = -1;
+
     private static String path = "D:\\Work\\IDAP-iOS-Trainee\\input.txt";
 
     public static String getPath() {
@@ -51,16 +57,16 @@ public class Main {
             Level level =  Main.findLevel(lvl);
             View.showLevel(level);
             int input = in.nextInt();
-            if (input <= level.getAnswers().size() && input > -2 ){
-                if (input == -1) {
+            if (input <= level.getAnswers().size() && input > LOSER ){
+                if (input == EXIT) {
                     Game.setStatus(true);
                 } else {
                     switch (level.getAnswers().get(input-1).getLink()) {
-                        case -2 :
+                        case LOSER :
                             Game.setStatus(true);
                             View.playerIsDead();
                             break;
-                        case -3 :
+                        case WINNER :
                             Game.setStatus(true);
                             View.playerIsWinner();
                             break;
