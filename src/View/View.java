@@ -1,11 +1,13 @@
 package View;
 
 import Model.Answer;
+import Model.History;
 import Model.Level;
 import Model.Parser;
 import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.SortedMap;
 
@@ -22,6 +24,14 @@ public class View {
             System.out.println(i + ". - " + ans.getDescription());
         }
         System.out.println("-1. - Exit");
+    }
+
+    public static void  printHistory(){
+        List<Level> levels = new LinkedList<Level>();
+        levels = History.getHistoryLevels();
+        for (Level level : levels) {
+            System.out.println(level.getDescription());
+        }
     }
 
     public static void starMenu(){
