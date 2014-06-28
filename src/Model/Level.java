@@ -1,9 +1,10 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Level {
-    private String description;
+    private List<String> description = new ArrayList<String>();
     private List<Answer> answers;
     private int number;
 
@@ -16,10 +17,10 @@ public class Level {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description.add(description);
     }
 
-    public String getDescription() {
+    public List<String> getDescription() {
         return description;
     }
 

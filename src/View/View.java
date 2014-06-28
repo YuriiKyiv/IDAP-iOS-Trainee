@@ -30,7 +30,9 @@ public class View {
     }
 
     public static void showLevelDescription(Level level){
-        System.out.println(level.getDescription());
+        for (String s : level.getDescription()) {
+            System.out.println(s);
+        }
     }
 
     public static void showLevelAnswers(Level level){
@@ -59,10 +61,8 @@ public class View {
     }
 
     public static void  printHistory(){
-        List<Level> levels = new LinkedList<Level>();
-        levels = History.getHistoryLevels();
-        for (Level level : levels) {
-            System.out.println(level.getDescription());
+        for (Level level : History.getHistoryLevels()) {
+            View.showLevelDescription(level);
         }
     }
 

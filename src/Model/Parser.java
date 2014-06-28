@@ -22,17 +22,20 @@ public  class Parser {
         String line;
         Level level = new Level();
         level.setNumber(lvl);
-        level.setDescription(file.readLine());
         List<Answer> answers = new ArrayList<Answer>();
 
-        while (!(line = file.readLine()).equals("</level>")){
+        while (!(line = file.readLine()).equals("<ans>")) {
+            level.setDescription(line);
+        }
+
+        do {
             if (line.equals("<ans>")){
                 Answer answer = new Answer();
                 answer.setDescription(file.readLine());
                 answer.setLink(Integer.parseInt(file.readLine()));
                 answers.add(answer);
             }
-        }
+        } while (!(line = file.readLine()).equals("</level>"));
 
         level.setAnswers(answers);
         file.close();

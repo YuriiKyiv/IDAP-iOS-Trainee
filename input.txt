@@ -1,6 +1,8 @@
 <level>
 1
 The story is comming...
+This story will newer been finished...
+I can't go back to yesterday because I was a different person then.
 <ans>
 Continue to retell a story
 2
@@ -14,6 +16,7 @@ Use a hint
 <level>
 2
 One day a young boy was dreammig that he could ever fly.
+“Begin at the beginning," the King said, very gravely, "and go on till you come to the end: then stop.”
 <ans>
 Give this boy wings
 3
@@ -27,6 +30,10 @@ Use a hint
 <level>
 3
 But this wings had a bug
+“But I don’t want to go among mad people," Alice remarked.
+"Oh, you can’t help that," said the Cat: "we’re all mad here. I’m mad. You’re mad."
+"How do you know I’m mad?" said Alice.
+"You must be," said the Cat, or you wouldn’t have come here.” 
 <ans>
 What was a bag?
 -3
