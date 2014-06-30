@@ -34,6 +34,12 @@ public class Main {
                 return level;
             }
         }
+        //if (!PreLoader.getLevels().isEmpty()){
+        //    for (Level level : PreLoader.getLevels()) {
+        //        if (level.getNumber() == lvl)
+        //            return level;
+        //    }
+        //}
 
         Level level = Parser.parse(lvl, Main.getPath());
         if (History.getHistoryLevels().size() > SIZE_OF_HISTORY) {
@@ -52,7 +58,8 @@ public class Main {
         }
 
         View.starMenu();
-        Thread thread = new Thread("file"){
+
+        Thread thread = new Thread("Indexation"){
             @Override
             public void run(){
                 try {
@@ -69,6 +76,7 @@ public class Main {
         int lvl = FIRST_LEVEL;
         while (!Game.isEnd()) {
             Level level =  Main.findLevel(lvl);
+            //PreLoader.preload(level);
             View.showLevel(level);
             int input = in.nextInt();
             if (input <= level.getAnswers().size() && input > LOSER ){

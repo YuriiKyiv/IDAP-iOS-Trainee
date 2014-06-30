@@ -3,12 +3,14 @@ package Model;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.ConcurrentSkipListMap;
 
 public class Indexation {
 
-    private static HashMap<Integer, Long> mainTable = new HashMap<Integer, Long>();
+    private static ConcurrentMap<Integer, Long> mainTable = new ConcurrentSkipListMap<Integer, Long>();
 
-    public static HashMap<Integer, Long> getMainTable() {
+    public static ConcurrentMap<Integer, Long> getMainTable() {
         return mainTable;
     }
 
@@ -23,6 +25,7 @@ public class Indexation {
                 key = Integer.parseInt(file.readLine());
                 value = file.getFilePointer();
                 mainTable.put(key, value);
+                System.out.println(key + "    " + value);
             }
         }
         file.close();
