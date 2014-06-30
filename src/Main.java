@@ -50,6 +50,24 @@ public class Main {
 
     }
 
+    public static void viewDead(){
+        new Thread("ViewDead"){
+            @Override
+            public void run(){
+                View.playerIsDead();
+            }
+        }.run();
+    }
+
+    public static void viewWinner(){
+        new Thread("ViewWinner"){
+            @Override
+            public void run(){
+                View.playerIsWinner();
+            }
+        }.run();
+    }
+
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -86,21 +104,11 @@ public class Main {
                     switch (level.getAnswers().get(input-1).getLink()) {
                         case LOSER :
                             Game.setStatus(true);
-                            new Thread("ViewDead"){
-                                @Override
-                                public void run(){
-                                    View.playerIsDead();
-                                }
-                            }.run();
+                            Main.viewDead();
                             break;
                         case WINNER :
                             Game.setStatus(true);
-                            new Thread("ViewWinner"){
-                                @Override
-                                public void run(){
-                                    View.playerIsWinner();
-                                }
-                            }.run();
+                            Main.viewWinner();
                             break;
                         default:
                             lvl = level.getAnswers().get(input-1).getLink();
