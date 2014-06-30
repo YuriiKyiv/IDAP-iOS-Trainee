@@ -25,7 +25,6 @@ public class Indexation {
                 key = Integer.parseInt(file.readLine());
                 value = file.getFilePointer();
                 mainTable.put(key, value);
-                System.out.println(key + "    " + value);
             }
         }
         file.close();

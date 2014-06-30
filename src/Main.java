@@ -86,11 +86,21 @@ public class Main {
                     switch (level.getAnswers().get(input-1).getLink()) {
                         case LOSER :
                             Game.setStatus(true);
-                            View.playerIsDead();
+                            new Thread("ViewDead"){
+                                @Override
+                                public void run(){
+                                    View.playerIsDead();
+                                }
+                            }.run();
                             break;
                         case WINNER :
                             Game.setStatus(true);
-                            View.playerIsWinner();
+                            new Thread("ViewWinner"){
+                                @Override
+                                public void run(){
+                                    View.playerIsWinner();
+                                }
+                            }.run();
                             break;
                         default:
                             lvl = level.getAnswers().get(input-1).getLink();
