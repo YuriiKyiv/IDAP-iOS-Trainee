@@ -96,7 +96,18 @@ public class Main {
         int lvl = FIRST_LEVEL;
         while (!Game.isEnd()) {
             loadLevel =  Main.findLevel(lvl);
-            PreLoader.load(loadLevel);
+            new Thread(){
+                @Override
+                public void run(){
+                    try {
+                        PreLoader.load(loadLevel);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }.run();
             View.showLevel(loadLevel);
             int input = in.nextInt();
             if (input <= loadLevel.getAnswers().size() && input > LOSER ){

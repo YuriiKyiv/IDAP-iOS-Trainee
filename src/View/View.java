@@ -69,8 +69,7 @@ public class View {
 
     public static void printPreLoader(){
         for (Level level : PreLoader.getLevels()) {
-            System.out.println(level.getDescription() + "preloader");
-            System.out.println();
+            View.showLevelDescription(level);
         }
     }
 
