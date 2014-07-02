@@ -38,10 +38,10 @@ public class Main {
             }
         }
 
-        //for (Level level : PreLoader.getLevels()){
-         //   if (level.getNumber() == lvl)
-          //      return level;
-        //}
+        for (Level level : PreLoader.getLevels()){
+            if (level.getNumber() == lvl)
+                return level;
+        }
 
         Level level = Parser.parse(lvl, Main.getPath());
         if (History.getHistoryLevels().size() > SIZE_OF_HISTORY) {
