@@ -17,7 +17,7 @@ public class PreLoader {
             levels.clear();
         }
         for (Answer answer : level.getAnswers()) {
-            if (!(answer.getLink() < 0)) {
+            if (!(answer.getLink() < 1)) {
                 PreLoader.levels.add(Parser.parse(answer.getLink(), Main.getPath()));
             }
         }
