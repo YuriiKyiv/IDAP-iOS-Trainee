@@ -3,6 +3,7 @@ package View;
 import Model.Answer;
 import Model.History;
 import Model.Level;
+import Model.PreLoader;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -63,6 +64,13 @@ public class View {
     public static void  printHistory(){
         for (Level level : History.getHistoryLevels()) {
             View.showLevelDescription(level);
+        }
+    }
+
+    public static void printPreLoader(){
+        for (Level level : PreLoader.getLevels()) {
+            System.out.println(level.getDescription() + "preloader");
+            System.out.println();
         }
     }
 

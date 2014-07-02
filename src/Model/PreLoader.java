@@ -1,37 +1,27 @@
 package Model;
 
+import Controller.Main;
+
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class PreLoader {
 
-    private static String path = "D:\\Work\\IDAP-iOS-Trainee\\input.txt";
+    private static String path = Main.getPath();
 
-    public static List<Level> levels = new ArrayList<Level>();
+    private static List<Level> levels = new CopyOnWriteArrayList<Level>();
+
+    public static void load(Level level) throws IOException, InterruptedException {
+        for (Answer answer : level.getAnswers()) {
+            if (!(answer.getLink() < 0)) {
+                PreLoader.levels.add(Parser.parse(answer.getLink(), Main.getPath()));
+            }
+        }
+
+    }
 
     public static List<Level> getLevels() {
         return levels;
-    }
-
-    public static void preload(final Level level){
-        if (!PreLoader.getLevels().isEmpty()){
-            PreLoader.getLevels().clear();
-        }
-        for ( final Answer answer : level.getAnswers()) {
-            Thread thread = new Thread(answer.getDescription()){
-                @Override
-                public void run() {
-                    try {
-                        levels.add(Parser.parse(answer.getLink(), path));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            };
-            thread.run();
-        }
     }
 }

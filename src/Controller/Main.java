@@ -1,6 +1,7 @@
+package Controller;
+
 import Model.*;
 import View.View;
-import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -19,6 +20,8 @@ public class Main {
 
     private static String path = "D:\\Work\\IDAP-iOS-Trainee\\input.txt";
 
+    public static Level loadLevel;
+
     public static String getPath() {
         return path;
     }
@@ -34,11 +37,10 @@ public class Main {
                 return level;
             }
         }
-        //if (!PreLoader.getLevels().isEmpty()){
-        //    for (Level level : PreLoader.getLevels()) {
-        //        if (level.getNumber() == lvl)
-        //            return level;
-        //    }
+
+        //for (Level level : PreLoader.getLevels()){
+         //   if (level.getNumber() == lvl)
+          //      return level;
         //}
 
         Level level = Parser.parse(lvl, Main.getPath());
@@ -93,15 +95,15 @@ public class Main {
         in.next();
         int lvl = FIRST_LEVEL;
         while (!Game.isEnd()) {
-            Level level =  Main.findLevel(lvl);
-            //PreLoader.preload(level);
-            View.showLevel(level);
+            loadLevel =  Main.findLevel(lvl);
+            PreLoader.load(loadLevel);
+            View.showLevel(loadLevel);
             int input = in.nextInt();
-            if (input <= level.getAnswers().size() && input > LOSER ){
+            if (input <= loadLevel.getAnswers().size() && input > LOSER ){
                 if (input == EXIT) {
                     Game.setStatus(true);
                 } else {
-                    switch (level.getAnswers().get(input-1).getLink()) {
+                    switch (loadLevel.getAnswers().get(input-1).getLink()) {
                         case LOSER :
                             Game.setStatus(true);
                             Main.viewDead();
@@ -111,7 +113,7 @@ public class Main {
                             Main.viewWinner();
                             break;
                         default:
-                            lvl = level.getAnswers().get(input-1).getLink();
+                            lvl = loadLevel.getAnswers().get(input-1).getLink();
                             break;
                     }
                 }
@@ -120,7 +122,7 @@ public class Main {
                 View.noCorrectAnswer();
             }
         }
-
+        View.printPreLoader();
         View.printHistory();
     }
 }
