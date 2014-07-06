@@ -11,6 +11,10 @@ public class Level {
     private List<Answer> nextLevels;
     private Level preLevel;
 
+    public void setPreLevel(Level preLevel) {
+        this.preLevel = preLevel;
+    }
+
     public int getNumber() {
         return number;
     }
