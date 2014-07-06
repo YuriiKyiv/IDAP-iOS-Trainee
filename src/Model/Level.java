@@ -8,6 +8,9 @@ public class Level {
     private List<Answer> answers;
     private int number;
 
+    private List<Answer> nextLevels;
+    private Level preLevel;
+
     public int getNumber() {
         return number;
     }
