@@ -8,8 +8,16 @@ public class Level {
     private List<Answer> answers;
     private int number;
 
-    private List<Answer> nextLevels;
+    private List<Level> nextLevels = new ArrayList<>();
     private Level preLevel;
+
+    public void setNextLevels(List<Level> nextLevels) {
+        this.nextLevels = nextLevels;
+    }
+
+    public List<Level> getNextLevels() {
+        return nextLevels;
+    }
 
     public void setPreLevel(Level preLevel) {
         this.preLevel = preLevel;
