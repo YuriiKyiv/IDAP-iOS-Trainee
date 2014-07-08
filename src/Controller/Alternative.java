@@ -38,6 +38,9 @@ public class Alternative {
             }
 
         };
+    }
 
+    public List<Answer> filling(List<Answer> answers){
+        return answers;
     }
 }
